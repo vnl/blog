@@ -61,6 +61,6 @@ exclude:
   - vendor/
 
 # Optional: analytics and permalinks
-# google_analytics: G-XXXXXXXXXX
+google_analytics: G-TSKPPBVCB6
 # permalink: pretty            # => /year/month/day/title/
 # permalink: /:categories/:title/ # => /life/how-to-use-your-free-time/
