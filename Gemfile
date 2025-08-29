@@ -8,6 +8,7 @@ gem "base64"
 gem "csv"
 gem "logger"
 gem "bigdecimal"
+gem 'jekyll-admin', group: :jekyll_plugins
 
 # For local serve on older Jekylls if needed
 # gem "webrick"
