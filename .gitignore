@@ -1,3 +1,23 @@
-_site
-.sass-cache
+# Jekyll output
+_site/
+.jekyll-cache/
 .jekyll-metadata
+.sass-cache/
+
+# Bundler
+/vendor/
+/.bundle/
+/Gemfile.lock
+
+# Ruby/RVM/Rbenv
+.ruby-version
+.ruby-gemset
+
+# macOS cruft
+.DS_Store
+
+# Editor/IDE settings
+*.swp
+*~
+.idea/
+/.vscode/
