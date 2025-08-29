@@ -1,18 +1,7 @@
 # Welcome to Jekyll!
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+author: "Vivian Lobo"
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: Viv's Thoughts
 email: vivian@vivianlobo.com
 description: >- # this means to ignore newlines until "baseurl:"
@@ -22,21 +11,56 @@ baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://vivianlobo.com/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: VivianLobo7
 github_username:  vnl
+lang: en-GB
+timezone: Europe/London
+
+# Navigation and presentation
+header_pages:
+  - about.md
+show_excerpts: true
+
+# Minima theme options
+minima:
+  skin: auto # light, dark, auto
+  social_links:
+    - { platform: github,  user_url: "https://github.com/vnl" }
+    - { platform: twitter, user_url: "https://twitter.com/VivianLobo7" }
 
 # Build settings
 markdown: kramdown
 theme: minima
+# remote_theme: pages-themes/hacker@v0.2.0
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-mentions
+  - jekyll-include-cache
+
+# Pagination (homepage)
+paginate: 5
+paginate_path: "/page:num/"
+
+# Markdown/rendering
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+
+# Optional: analytics and permalinks
+google_analytics: G-TSKPPBVCB6
+# permalink: pretty            # => /year/month/day/title/
+# permalink: /:categories/:title/ # => /life/how-to-use-your-free-time/
