@@ -9,7 +9,7 @@ excerpt: "Replace `cd` with a smarter tool that learns where you go most often a
 
 If you spend time in the terminal, you probably use `cd` dozens of times a day. It works, but it is slow for deep paths and forces you to remember every directory name.
 
-Zoxide solves this problem by learning where you go most often and letting you jump there with just a few keystrokes. After switching to Zoxide on my Mac, I navigate faster, stay focused, and type less.
+Zoxide solves this problem by learning where you go most often and letting you jump there with just a few keystrokes. After switching to Zoxide on my Mac, I navigate faster, stay focused (this is me making stuff up), and type less.
 
 ## Installing Zoxide on macOS
 
@@ -43,22 +43,22 @@ z                     # go home
 z -                   # go back to previous directory  
 ```
 
-As you use it, Zoxide builds a memory of where you go. Each directory gets a score based on **frecency** – a mix of frequency and recency. The more often and more recently you visit, the higher the score.
+As you use it, Zoxide builds a memory of where you go. Each directory gets a score based on **frecency** which is a mix of frequency and recency. The more often and more recently you visit, the higher the score.
 
 Instead of typing full paths, you can just type:
 
 ```bash
-z nvim custom
+z dev used_up
 ```
 
-and Zoxide will take you to `~/.config/nvim/lua/custom`.
+and Zoxide will take you to `~/Downloads/dev/MyProjects/used_up`.
 
 ## Smart Matching Rules
 
 Zoxide's matching is simple and reliable:
 
-- Case-insensitive – type in lowercase
-- Order matters – `z nvim lua` works, `z lua nvim` does not
+- Case-insensitive: You can type in lowercase
+- Order matters: `z dev used_up` works, `z used_up dev` does not
 - Last word must match the last path component
 - Highest score wins when there are multiple matches
 
@@ -99,7 +99,7 @@ Switching to Zoxide:
 
 - Saves time and keystrokes
 - Keeps your hands on the home row
-- Reduces mental overhead – no need to recall long paths
+- Reduces mental overhead and hence you do not need to recall long paths
 - Adds fuzzy search for those "I can't quite remember" moments
 
 ## Final Thoughts
