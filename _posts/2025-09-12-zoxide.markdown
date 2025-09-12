@@ -1,0 +1,109 @@
+---
+layout: post
+title: "Zoxide: The Smarter `cd` Command for Faster Terminal Navigation"
+date: 2025-09-12 00:00:00 +0000
+categories: life
+tags: [command-line, productivity, tools, terminal, macos, navigation]
+excerpt: "Replace `cd` with a smarter tool that learns where you go most often and lets you jump there with just a few keystrokes."
+---
+
+If you spend time in the terminal, you probably use `cd` dozens of times a day. It works, but it is slow for deep paths and forces you to remember every directory name.
+
+Zoxide solves this problem by learning where you go most often and letting you jump there with just a few keystrokes. After switching to Zoxide on my Mac, I navigate faster, stay focused, and type less.
+
+## Installing Zoxide on macOS
+
+Zoxide works on Linux, macOS, and Windows. On macOS, install it with Homebrew:
+
+```bash
+brew install zoxide fzf
+```
+
+Then add this line to `~/.zshrc` (or `~/.bashrc`):
+
+```bash
+eval "$(zoxide init zsh)"
+```
+
+Reload your shell:
+
+```bash
+source ~/.zshrc
+```
+
+You now have the `z` command available.
+
+## How Zoxide Works
+
+At first, `z` behaves just like `cd`:
+
+```bash
+z ~/Projects/my-app   # jump to directory  
+z                     # go home  
+z -                   # go back to previous directory  
+```
+
+As you use it, Zoxide builds a memory of where you go. Each directory gets a score based on **frecency** – a mix of frequency and recency. The more often and more recently you visit, the higher the score.
+
+Instead of typing full paths, you can just type:
+
+```bash
+z nvim custom
+```
+
+and Zoxide will take you to `~/.config/nvim/lua/custom`.
+
+## Smart Matching Rules
+
+Zoxide's matching is simple and reliable:
+
+- Case-insensitive – type in lowercase
+- Order matters – `z nvim lua` works, `z lua nvim` does not
+- Last word must match the last path component
+- Highest score wins when there are multiple matches
+
+This means Zoxide gets better every day you use it.
+
+## Interactive Search with FZF
+
+Pair Zoxide with [FZF](https://github.com/junegunn/fzf) to add fuzzy search.
+
+- Run `zi` to open a searchable list of your most visited directories
+- Type to filter, then press Enter to jump there
+- Or type part of a path, press Space then Tab to trigger fuzzy suggestions
+
+This is ideal when you only remember part of a directory name.
+
+## Managing the Zoxide Database
+
+Zoxide keeps its own small database and cleans out old entries automatically. You can manage it manually:
+
+- `zoxide add <dir>` – add or boost a directory
+- `zoxide query <term>` – search the database, add `-L` to list all
+- `zoxide remove <term>` – delete unwanted paths
+- `zoxide edit` – open an interactive editor to adjust or remove entries
+
+## Replacing `cd` with Zoxide
+
+To make Zoxide completely natural, alias `cd` itself:
+
+```bash
+eval "$(zoxide init zsh --cmd cd)"
+```
+
+Now every `cd` you type is powered by Zoxide, and you can use `cdi` for interactive search.
+
+## Why It's Worth Using
+
+Switching to Zoxide:
+
+- Saves time and keystrokes
+- Keeps your hands on the home row
+- Reduces mental overhead – no need to recall long paths
+- Adds fuzzy search for those "I can't quite remember" moments
+
+## Final Thoughts
+
+Zoxide is a small tool with a big payoff. Installing it on macOS takes minutes, but it makes navigation faster and less frustrating.
+
+Combine it with FZF, alias it to `cd`, and you will not want to go back to the default command.
